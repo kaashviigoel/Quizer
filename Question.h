@@ -5,24 +5,19 @@
 using namespace std;
 
 class Question {
-private:
+protected:
   string text;
-  string options[4];
-  int correct;
   string category;
-  string difficulty;
   int marks;
 
 public:
   Question();
-  Question(string t, string o1, string o2, string o3, string o4, int c,
-           string cat, string diff, int m);
-  void display() const;
-  bool isCorrect(int choice) const;
-  string serialize() const;
-  static Question deserialize(const string &line);
+  Question(string t, string c, int m);
+  virtual ~Question();
+  virtual void display() const = 0;
+  virtual bool checkAnswer(const string &ans) const = 0;
+  virtual string serialize() const = 0;
   string getCategory() const;
-  string getDifficulty() const;
   int getMarks() const;
 };
 

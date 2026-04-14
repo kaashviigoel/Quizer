@@ -1,28 +1,29 @@
-#include "Admin.h"
-#include "Quiz.h"
+#include "QuizManager.h"
+#include <fstream>
 #include <iostream>
+#include <string>
 using namespace std;
 
 int main() {
-  Quiz quiz;
-  quiz.loadQuestions("questions.txt");
+  QuizManager qm;
+  qm.loadQuestions("questions.txt");
+  ifstream test("questions.txt");
+  if (!test)
+    qm.addSampleQuestions();
   int ch;
   while (true) {
-    cout << "\n1. Add Question\n2. Take Quiz\n3. Save Questions\n4. "
+    cout << "\n1. Take Quiz\n2. Save Questions\n3. Save Result\n4. "
             "Exit\nChoice: ";
     cin >> ch;
-    if (ch == 1) {
-      Admin::addQuestionFlow(quiz);
-    } else if (ch == 2) {
-      quiz.run();
-      quiz.saveResult("results.txt");
-    } else if (ch == 3) {
-      quiz.saveQuestions("questions.txt");
-      cout << "Saved.\n";
-    } else if (ch == 4)
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    if (ch == 1)
+      qm.runQuiz();
+    else if (ch == 2)
+      qm.saveQuestions("questions.txt");
+    else if (ch == 3)
+      qm.saveResult("results.txt");
+    else if (ch == 4)
       break;
-    else
-      cout << "Invalid choice\n";
   }
   return 0;
 }
