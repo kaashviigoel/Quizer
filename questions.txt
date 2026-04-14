@@ -1,0 +1,4 @@
+What is 2+2?|3|4|5|6|2|Math|Easy|5
+Which planet is known as the Red Planet?|Earth|Mars|Venus|Jupiter|2|Science|Easy|5
+Who wrote Hamlet?|Shakespeare|Dickens|Austen|Orwell|1|Literature|Medium|10
+What is the capital of India?|Kolkata|Mumbai|Chennai|Delhi|4|Geography|Easy|5
