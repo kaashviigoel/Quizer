@@ -1,7 +1,7 @@
 #include "QuizManager.h"
 #include <fstream>
 #include <iostream>
-#include <string>
+#include <limits>
 using namespace std;
 
 int main() {
@@ -10,20 +10,37 @@ int main() {
   ifstream test("questions.txt");
   if (!test)
     qm.addSampleQuestions();
+
   int ch;
   while (true) {
-    cout << "\n1. Take Quiz\n2. Save Questions\n3. Save Result\n4. "
-            "Exit\nChoice: ";
+    cout << "\n=== Quiz Menu ===\n";
+    cout << "1. Add Question\n";
+    cout << "2. Take Quiz\n";
+    cout << "3. Save Questions\n";
+    cout << "4. Save Result\n";
+    cout << "5. Add Sample Questions\n";
+    cout << "6. Exit\n";
+    cout << "Choice: ";
     cin >> ch;
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
     if (ch == 1)
-      qm.runQuiz();
+      qm.addQuestion();
     else if (ch == 2)
+      qm.runQuiz();
+    else if (ch == 3) {
       qm.saveQuestions("questions.txt");
-    else if (ch == 3)
+      cout << "Questions saved.\n";
+    } else if (ch == 4) {
       qm.saveResult("results.txt");
-    else if (ch == 4)
+      cout << "Result saved.\n";
+    } else if (ch == 5) {
+      qm.addSampleQuestions();
+      cout << "Sample questions added in memory.\n";
+    } else if (ch == 6)
       break;
+    else
+      cout << "Invalid choice.\n";
   }
   return 0;
 }

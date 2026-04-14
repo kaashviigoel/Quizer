@@ -20,6 +20,7 @@ public:
   void loadQuestions(const string &filename);
   void saveQuestions(const string &filename) const;
   void addSampleQuestions();
+  void addQuestion();
   void runQuiz();
   void saveResult(const string &filename) const;
   template <typename T> T percentage() const {
