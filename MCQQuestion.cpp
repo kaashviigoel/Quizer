@@ -21,7 +21,11 @@ void MCQQuestion::display() const {
 }
 
 bool MCQQuestion::checkAnswer(const string &ans) const {
-  return stoi(ans) == correctIndex;
+  try {
+    return stoi(ans) == correctIndex;
+  } catch (...) {
+    return false;
+  }
 }
 
 string MCQQuestion::serialize() const {
