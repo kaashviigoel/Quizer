@@ -85,8 +85,7 @@ quiz_project/
 2. Take Quiz
 3. Save Questions
 4. Save Result
-5. Add Sample Questions
-6. Exit
+5. Exit
 ```
 
 ## Sample Question File Format
@@ -118,6 +117,7 @@ Run the executable:
 - Choose **3** to save the new question into `questions.txt`.
 - Choose **2** to take the quiz.
 - Choose **4** to save the quiz result into `results.txt`.
+- Choose **5** to exit the menu.
 
 ## Testing
 Suggested test cases:
