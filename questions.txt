@@ -1,2 +1,4 @@
 MCQ|What is 2+2?|Math|5|3|4|5|6|2
 TF|The earth is round.|Science|5|1
+TF|KCl is table salt.|Science|10|0
+MCQ|What is the capital of Hungary?|Geography|15|Debrecen|Prague|Budapest|Copenhagen|3

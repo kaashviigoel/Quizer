@@ -1,139 +1,152 @@
-# BACSE104 Micro-Project Report
-## Structured and Object-Oriented Programming
-### C++ Programming Track
+# Quizer
 
-**Project Title:** Smart Quiz Engine and Performance Analyzer
+A C++ micro-project developed for **BACSE104 - Structured and Object-Oriented Programming** under the **C++ Programming Track**. This project is a menu-driven quiz application that supports multiple question types, stores quiz data in files, and analyzes user performance.
 
-**Student Name:** Prerak Daga
+## Course Context
+This project is aligned with the BACSE104 micro-project requirements for the C++ track. It demonstrates meaningful object-oriented design using multiple classes, inheritance, polymorphism, STL containers and iterators, templates, and file handling.
 
-**Registration Number:** ____________________
+## Project Overview
+The application lets a user add quiz questions, take a quiz, and save results for later review. It uses an abstract base class for common question behavior and derived classes for different question types, which makes the design modular and easy to extend.
 
-**Class / Section:** ____________________
+## Objectives
+- Build a functional quiz application in C++.
+- Apply object-oriented programming concepts in a meaningful way.
+- Use inheritance and polymorphism for different question types.
+- Use STL containers and iterators to manage question objects.
+- Use file handling to store questions and results persistently.
+- Demonstrate templates in a relevant way through percentage calculation.
 
-**Faculty Name:** ____________________
+## Features
+- Menu-driven console interface.
+- Add new quiz questions.
+- Support for **MCQ** and **True/False** questions.
+- Load questions from `questions.txt`.
+- Save questions back to file.
+- Conduct quizzes and calculate score.
+- Save quiz results in `results.txt`.
+- Display percentage and performance summary.
 
-**Date of Submission:** ____________________
+## C++ Concepts Used
+This project includes the following required concepts:
+- **Classes and Objects**
+- **Constructors and Destructors**
+- **Encapsulation**
+- **Inheritance**
+- **Polymorphism**
+- **Templates**
+- **STL Containers and Iterators**
+- **File Handling**
 
----
+## Class Design
+### `Question`
+Base abstract class containing common data such as question text, category, and marks, with virtual methods for display, answer checking, and serialization.
 
-## 1. Title of the Project
-Smart Quiz Engine and Performance Analyzer.
+### `MCQQuestion`
+Derived class for multiple-choice questions. It stores four options and the correct option index.
 
-## 2. Problem Statement
-Many simple quiz programs only display questions and calculate a score, but they do not properly organize questions by type, save data, or analyze performance. This project aims to build a more complete quiz application that supports multiple question types, stores questions and results in files, and analyzes user performance in a structured way.
+### `TFQuestion`
+Derived class for true/false questions.
 
-## 3. Objective of the Project
-- To create a menu-driven quiz application in C++.
-- To support different question types using inheritance and polymorphism.
-- To store and load questions and results using file handling.
-- To use STL containers and iterators for managing question objects.
-- To calculate quiz scores and display performance summaries.
+### `QuizManager`
+Manages:
+- Loading and saving questions.
+- Adding questions.
+- Running the quiz.
+- Saving results.
+- Calculating percentage using a template function.
 
-## 4. Track Chosen
-C++ Programming Track.
-
-## 5. Features of the Proposed System
-- Add quiz questions.
-- Support multiple question types such as MCQ and True/False.
-- Load questions from a file.
-- Save updated questions back to a file.
-- Conduct a quiz for the user.
-- Calculate score and percentage.
-- Save result history to a file.
-- Use STL vector and iterators for question management.
-
-## 6. Concepts Used
-The following C++ concepts are used in this project:
-- Classes and objects.
-- Constructors and destructors.
-- Encapsulation.
-- Inheritance.
-- Polymorphism.
-- Templates.
-- STL containers and iterators.
-- File handling.
-
-## 7. System Design / Program Design
-The project is divided into multiple classes. The base class `Question` stores common data such as question text, category, and marks. The derived classes `MCQQuestion` and `TFQuestion` implement different question formats and override virtual functions for display and answer checking. `QuizManager` stores the questions in a `vector<shared_ptr<Question>>`, runs the quiz, calculates results, and saves data to files. File organization is separated into header and implementation files for better modularity.
-
-## 8. Algorithm / Logic
-1. Start the program.
-2. Load questions from the file.
-3. Display the main menu.
-4. Allow the user to take the quiz or save questions/results.
-5. For each question, display the text and options.
-6. Accept the user’s answer.
-7. Compare the answer with the correct one.
-8. Update the score and total marks.
-9. Show the final score and percentage.
-10. Save the result to a file.
-11. End the program.
-
-## 9. Sample Input and Output
-### Sample Input
-- Student Name: Prerak Daga
-- Selected quiz category: All
-- Answers entered for the questions
-
-### Sample Output
+## File Structure
 ```text
-Enter student name: Prerak Daga
-
-What is 2+2?
-1) 3
-2) 4
-3) 5
-4) 6
-Your answer: 2
-
-The earth is round.
-1) True
-2) False
-Your answer: 1
-
-Score: 10/10
-Percentage: 100%
+quiz_project/
+├── main.cpp
+├── Question.h
+├── Question.cpp
+├── MCQQuestion.h
+├── MCQQuestion.cpp
+├── TFQuestion.h
+├── TFQuestion.cpp
+├── QuizManager.h
+├── QuizManager.cpp
+├── questions.txt
+└── results.txt
 ```
 
-## 10. Testing
-| Test Case | Input | Expected Result | Actual Result |
-|---|---|---|---|
-| Take quiz with correct answers | Valid name and correct options | Full score displayed | Full score displayed |
-| Take quiz with wrong answers | Valid name and wrong options | Lower score displayed | Lower score displayed |
-| Save questions | Menu option 2 | Questions written to file | Questions written to file |
-| Save result | Menu option 3 | Result appended to result file | Result appended to result file |
+## How It Works
+1. The program loads existing questions from `questions.txt`.
+2. The user chooses an option from the menu.
+3. New questions can be added and then saved.
+4. The user can take the quiz.
+5. The score and percentage are calculated.
+6. The result is saved to `results.txt`.
 
-## 11. Challenges Faced
-- Designing multiple question types in a clean object-oriented way.
-- Implementing polymorphism using a base class pointer.
-- Managing file input and output correctly.
-- Using `stoi()` and string parsing while loading data.
-- Handling user input without leftover buffer issues.
+## Menu Options
+```text
+1. Add Question
+2. Take Quiz
+3. Save Questions
+4. Save Result
+5. Add Sample Questions
+6. Exit
+```
 
-## 12. Conclusion
-This project helped in understanding object-oriented programming in C++ in a practical way. It demonstrates the use of inheritance, polymorphism, templates, STL containers, iterators, and file handling in a single application. The project also improved modular coding and problem-solving skills.
+## Sample Question File Format
+### MCQ
+```text
+MCQ|What is 2+2?|Math|5|3|4|5|6|2
+```
 
-## 13. Future Enhancement
-- Add login protection for admin mode.
-- Add more question types such as fill-in-the-blank and matching.
-- Add a leaderboard and advanced analytics.
-- Improve the user interface and error handling.
+### True/False
+```text
+TF|The earth is round.|Science|5|1
+```
 
-## 14. References
-- Course notes for Structured and Object-Oriented Programming.
-- C++ reference documentation.
-- STL and file handling examples discussed in class.
-- Standard C++ library documentation.
+## Compilation and Execution
+Use the following command to compile the project:
 
----
+```bash
+g++ main.cpp Question.cpp MCQQuestion.cpp TFQuestion.cpp QuizManager.cpp -o quiz
+```
 
-## Submission Checklist
-- Title page
-- Problem statement and objectives
-- Features and concepts used
-- Design / algorithm
-- Source code
-- Sample output
-- Test cases
-- Conclusion
-- References
+Run the executable:
+
+```bash
+./quiz
+```
+
+## Example Workflow
+- Choose **1** to add a question.
+- Choose **3** to save the new question into `questions.txt`.
+- Choose **2** to take the quiz.
+- Choose **4** to save the quiz result into `results.txt`.
+
+## Testing
+Suggested test cases:
+- Add an MCQ question and save it successfully.
+- Add a True/False question and save it successfully.
+- Attempt a quiz with correct answers.
+- Attempt a quiz with wrong answers.
+- Verify results are appended to `results.txt`.
+
+## Challenges Faced
+- Designing the system with proper inheritance and polymorphism.
+- Handling input correctly using `cin`, `getline`, and `cin.ignore()`.
+- Serializing and deserializing question data from files.
+- Managing multiple source files in a C++ project.
+
+## Future Enhancements
+- Add more question types such as Fill in the Blank.
+- Add admin login protection.
+- Add category-wise result analysis.
+- Add leaderboard and score history dashboard.
+- Improve error handling and input validation.
+
+## Conclusion
+This project demonstrates the core C++ programming concepts required for the BACSE104 micro-project. It provides a practical quiz system with file storage, reusable class design, and result analysis features.
+
+## References
+- BACSE104 Structured and Object-Oriented Programming micro-project guideline.
+- C++ standard library documentation.
+- Course notes and class examples.
+
+## Author
+**Kaashvi Goel**

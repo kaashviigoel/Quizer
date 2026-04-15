@@ -29,13 +29,6 @@ void QuizManager::saveQuestions(const string &filename) const {
     fout << (*it)->serialize() << '\n';
 }
 
-void QuizManager::addSampleQuestions() {
-  questions.push_back(make_shared<MCQQuestion>("What is 2+2?", "Math", 5, "3",
-                                               "4", "5", "6", 2));
-  questions.push_back(
-      make_shared<TFQuestion>("The earth is round.", "Science", 5, true));
-}
-
 void QuizManager::addQuestion() {
   cout << "Select type:\n1. MCQ\n2. True/False\nChoice: ";
   int type;
