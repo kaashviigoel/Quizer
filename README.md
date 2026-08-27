@@ -1,6 +1,6 @@
 # Quizer
 
-A C++ micro-project developed for **BACSE104 - Structured and Object-Oriented Programming** under the **C++ Programming Track**. This project is a menu-driven quiz application that supports multiple question types, stores quiz data in files, and analyzes user performance.
+A C++ micro-project developed under the **C++ Programming Track**. This project is a menu-driven quiz application that supports multiple question types, stores quiz data in files, and analyzes user performance.
 
 ## Course Context
 This project is aligned with the BACSE104 micro-project requirements for the C++ track. It demonstrates meaningful object-oriented design using multiple classes, inheritance, polymorphism, STL containers and iterators, templates, and file handling.
