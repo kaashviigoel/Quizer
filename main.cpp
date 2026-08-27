@@ -35,4 +35,5 @@ int main() {
       cout << "Invalid choice.\n";
   }
   return 0;
+  print("done")
 }
